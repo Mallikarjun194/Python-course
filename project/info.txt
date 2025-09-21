@@ -1,0 +1,60 @@
+
+Rest api:
+
+CRUD:
+
+1. Create -> POST
+2. List -> GET
+3. Update -> Patch/put
+4. Delete -> Delete
+
+
+Framework: flask
+
+TODO-Project:
+
+[
+{
+    "id": 123,
+    "title": "Java course"
+    "completed":false
+},
+{
+    "id": 12,
+    "title": "Python course"
+    "completed":true
+}
+]
+
+POST: todos/
+
+Payload:
+data:
+{
+    "title": "Python course"
+}
+Success -> 201 -> Created
+title is missing -> 400 bad request
+
+GETAll-> GET: todos/
+[]{todo-items} -> 200 Ok
+
+GET: todos/<id>
+{todo-item} -> 200 Ok
+
+PUT/PATCH: todos/<id>
+PUT: If id exist or not, if exist it will update if not it will create new item
+-> PATCH:  if exist it will update if not it will throw error.
+200 OK
+
+DELETE: todos/<id>
+200 OK
+
+
+By default application will run on
+localhost: 127.0.0.1
+port: 5000
+
+
+
+
