@@ -12,3 +12,29 @@ def create_todo():
     todo = store.create(data["title"])
     # 201 created status code for POST API
     return jsonify(todo), 201
+
+@todo_bluePrint.route("/", methods=["GET"])
+def get_todos():
+    return jsonify(store.getall())
+
+@todo_bluePrint.route("/<int:id>", methods=["GET"])
+def get_todo(id):
+    todo = store.get_one(id)
+    if not todo:
+        return jsonify({"error": "id not present in todo list!"}), 404
+    return jsonify(todo)
+
+@todo_bluePrint.route("/<int:id>", methods=["PUT"])
+def update_todo(id):
+    data = request.json
+    todo = store.update(id, data)
+    if not todo:
+        return jsonify({"error": "id not present in todo list!"}), 404
+    return jsonify(todo)
+
+@todo_bluePrint.route("/<int:id>", methods=["DELETE"])
+def delete_todo(id):
+    todo = store.delete(id)
+    if not todo:
+        return jsonify({"error": "id not present in todo list!"}), 404
+    return jsonify({"msg ": "todo deleted successfully!!"})

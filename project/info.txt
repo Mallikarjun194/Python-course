@@ -4,7 +4,7 @@ Rest api:
 CRUD:
 
 1. Create -> POST
-2. List -> GET
+2. List(Read) -> GET
 3. Update -> Patch/put
 4. Delete -> Delete
 
